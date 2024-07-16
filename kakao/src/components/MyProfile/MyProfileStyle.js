@@ -10,7 +10,6 @@ export const MainContainer = styled.div`
 export const ProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #E0ECF8;
     width: 500px;
@@ -21,7 +20,7 @@ export const ProfileContainer = styled.div`
 export const Title = styled.div`
     font-size: 30px;
     font-weight: 600;
-    margin: 20px;
+    margin: 40px 0px 30px 0px;
     padding-bottom: 3px;
     border-bottom: 1px solid #084B8A;
 `
@@ -44,7 +43,7 @@ export const Button = styled.button`
     width: 100px;
     height: 40px;
     font-size: 15px;
-    margin: 10px;
+    margin: auto 5px 40px 5px;
     cursor: pointer;
 `
 
