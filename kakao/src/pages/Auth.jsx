@@ -11,6 +11,7 @@ const Auth = () => {
          // 백에 인가 코드를 보내서 토큰을 받아옴
         let code = new URL(window.location.href).searchParams.get('code');
         const response = await axiosInstance.post('/auth/kakao/login', { access_code: code });
+        console.log(response);
         // 토큰을 localstorage에 저장
         localStorage.setItem('access_token', response.data.access_token);
         localStorage.setItem('refresh_token', response.data.refresh_token);
