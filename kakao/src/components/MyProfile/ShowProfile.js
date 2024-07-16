@@ -9,7 +9,8 @@ const ShowProfile = ({ id, nickname, description, onEdit }) => {
         <div>
         <ShowText><strong>ID</strong> : {id}</ShowText>
         <ShowText><strong>닉네임</strong> : {nickname}</ShowText>
-        <ShowText><strong>소개</strong> <br/> {description}</ShowText>
+        <ShowText><strong>소개</strong></ShowText>
+        <ShowText>{description}</ShowText>
         </div>
         <Button onClick={onEdit}>수정하기</Button>
       </ProfileContainer>

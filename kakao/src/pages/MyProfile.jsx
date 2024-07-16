@@ -9,27 +9,28 @@ const MyProfile = () => {
   const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
+    // 프로필 데이터 받아오기
     const fetchProfile = async () => {
       try {
-        // 로컬 스토리지에서 access token을 가져옵니다.
+        // 로컬 스토리지에서 access token을 가져옴
         const accessToken = localStorage.getItem('access_token');
 
-        // access token이 없으면 아무것도 하지 않습니다.
+        // access token이 없을 경우
         if (!accessToken) {
           return;
         }
 
-        // GET 요청을 통해 프로필 데이터를 가져옵니다.
+        // 프로필 데이터를 get
         const response = await axiosInstance.get('/users/me', {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
 
-        // 받아온 데이터를 상태에 설정합니다.
+        // response 데이터를 상태에 설정
         setProfile(response.data);
       } catch (error) {
-        console.error('Error fetching profile:', error);
+        console.error(error);
       }
     };
 
@@ -39,15 +40,34 @@ const MyProfile = () => {
   const handleEdit = () => {
     setEditMode(true);
   };
+  // 프로필 수정하기
+  const handleSaveDescription = async (editedDescription) => {
+    try {
+      // 로컬 스토리지에서 access token을 가져옴
+      const accessToken = localStorage.getItem('access_token');
 
-  const handleSaveDescription = (editedDescription) => {
-    // 서버로 수정된 description을 전송할 수도 있습니다.
-    setProfile({
-      ...profile,
-      description: editedDescription,
-    });
-    setEditMode(false);
-  }
+      // access token이 없을 경우
+      if (!accessToken) {
+        return;
+      }
+
+      // 프로필 description을 patch
+      const response = await axiosInstance.patch('/users', {
+        description: editedDescription,
+      }, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      // response 데이터를 상태에 설정
+      setProfile(response.data);
+      setEditMode(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       {profile ? (
