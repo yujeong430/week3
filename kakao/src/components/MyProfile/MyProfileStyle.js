@@ -26,22 +26,6 @@ export const Title = styled.div`
     border-bottom: 1px solid #084B8A;
 `
 
-export const FormContainer = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
-export const Input = styled.input`
-    border: none;
-    border-radius: 10px;
-    width: 200px;
-    height: 20px;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 13px;
-    font-size: 17px;
-`
-
 export const InputLong = styled.textarea`
     border: none;
     border-radius: 10px;
@@ -61,6 +45,7 @@ export const Button = styled.button`
     height: 40px;
     font-size: 15px;
     margin: 10px;
+    cursor: pointer;
 `
 
 export const ShowText = styled.div`

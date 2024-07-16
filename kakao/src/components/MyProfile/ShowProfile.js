@@ -5,7 +5,7 @@ const ShowProfile = ({ id, nickname, description, onEdit }) => {
   return (
     <MainContainer>
       <ProfileContainer>
-        <Title>프로필 정보</Title>
+        <Title>내 프로필</Title>
         <div>
         <ShowText><strong>ID</strong> : {id}</ShowText>
         <ShowText><strong>닉네임</strong> : {nickname}</ShowText>

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import ShowProfile from '../components/MyProfile/ShowProfile';
 import EditProfile from '../components/MyProfile/EditProfile';
-import CreateProfile from '../components/MyProfile/CreateProfile';
 
 const MyProfile = () => {
-  const [profile, setProfile] = useState(null);
-  const [editMode, setEditMode] = useState(false);
-
-  const handleCreateProfile = (id, nickname, description) => {
-    const newProfile = { id, nickname, description };
-    setProfile(newProfile);
+  const initialProfile = {
+    id: 'user123',
+    nickname: '사용자',
+    description: '안녕하세요. 반갑습니다.',
   };
+
+  const [profile, setProfile] = useState(initialProfile);
+  const [editMode, setEditMode] = useState(false);
 
   const handleEdit = () => {
     setEditMode(true);
@@ -44,7 +44,7 @@ const MyProfile = () => {
           />
         )
       ) : (
-        <CreateProfile onCreate={handleCreateProfile} />
+        <div>프로필이 없습니다.</div>
       )}
     </div>
   );
