@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Btn = styled.div`
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -12,6 +12,6 @@ const Btn = styled.div`
 export function ProfilesBtn() {
     const navigate = useNavigate();
     return(
-        <Btn onClick={() => navigate('/profiles')}>👥 프로필 둘러보기</Btn>
+        <Btn onClick={() => navigate('/profiles')}>👥 프로필 둘러보기 👥</Btn>
     )
 }
